@@ -1,0 +1,19 @@
+Alder Hugo
+Rdf - Compte-rendu 1
+
+Matrice d'inertie :
+
+745.0080	-647.0326
+-647.0326	748.4077
+
+Valeurs propres :
+
+1393.7		99.7
+
+Vecteurs propres
+
+-0.706		0.708
+-0.708		-0.706
+
+		
+
