@@ -53,8 +53,19 @@ rdfDistances <- function (cont) {
   # Points extremes
   debut = head (cont, 1)
   fin = tail (cont, 1)
-  # Calculer les distances: A MODIFIER !
-  rep (0, length (cont))
+  # On isole la partie réelle de la partie imaginaire
+  x1 = Re(debut)
+  y1 = Im(debut)
+  x2 = Re(fin)
+  y2 = Im(fin)
+  # On remplie le vecteur résultat
+  vect = rep(0, length(cont))
+  for (i in length(cont)) {
+    xa = Re(cont[i])
+    ya = Im(cont[i])
+    vect[i] = rdfDistance(x1, y1, x2, y2, xa, ya)
+  }
+  vect
 }
 
 rdfAnnuleDescFourier <- function(desc, ratio) {
@@ -62,4 +73,17 @@ rdfAnnuleDescFourier <- function(desc, ratio) {
   moit <- length(desc) %/% 2
   desc[moit - n : moit + n] <- 0
   desc
+}
+
+rdfDistance <- function (x1, y1, x2, y2, xa, ya) {
+  # Coéfficient directeur
+  a = (y2 - y1) / (x2 - x1)
+  # Ordonnée à l'origine
+  b = y1 - a * x1
+  # Nominateur
+  nom = abs(a * xa - ya + b)
+  # Denominateur
+  den = sqrt(1 + a * a)
+  # Distance
+  d = nom / den
 }

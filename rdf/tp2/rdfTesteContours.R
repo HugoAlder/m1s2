@@ -22,7 +22,7 @@ library ("EBImage")
 source ("rdfContours.R")
 
 # Chargement d'un contour
-nom <- "rdf-carre-80.txt"
+nom <- "rdf-cercle-80.txt"
 cont <- rdfChargeFichierContour (nom)
 
 # Afficher le contour
