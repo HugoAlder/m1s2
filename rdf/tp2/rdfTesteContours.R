@@ -22,9 +22,28 @@ library ("EBImage")
 source ("rdfContours.R")
 
 # Chargement d'un contour
-nom <- "rdf-cercle-80.txt"
-cont <- rdfChargeFichierContour (nom)
+# nom <- "rdf-patate.txt"
+# cont2 <- rdfChargeFichierContour (nom)
+
+nom <- "rdf-triangle-20.png"
+img <- rdfReadGreyImage(nom)
+cont <- rdfContour(img)
 
 # Afficher le contour
 plot (cont, main = nom, type = "o", asp = 1, col = "red",
       ylim = rev (range (Im (cont))))
+
+desc = fft(cont, inverse=TRUE)/length(cont)
+desc = rdfAnnuleDescFourrier(desc, 1)
+lines(fft(desc, inverse=TRUE), main = nom, type = "o", pch=22, lty=2, col = "blue")
+
+corde = rdfAlgorithmeCorde(cont, 1)
+lines(corde, main = nom, type = "o", pch=22, lty=2, col = "green")
+
+# lines(fft(fft(cont),inverse=TRUE)/length(cont), main = nom, type = "o", pch=22, lty=2, col = "green"
+# desc = fft(cont,inverse=TRUE)/length(cont)
+# desc2 = rdfAnnuleDescFourrier(desc, 0.5)
+# lines(fft(desc2, inverse=TRUE), main = nom, type = "o", pch=22, lty=2, col = "blue")
+# desc3 = rdfAnnuleDescFourrier(desc, 0)
+# lines(fft(desc3, inverse=TRUE), main = nom, type = "o", pch=22, lty=2, col = "green")
+
