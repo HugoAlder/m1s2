@@ -30,7 +30,7 @@ nbins <- 256
 h <- hist (as.vector (image), breaks = seq (0, 1, 1 / nbins))
 
 # Segmentation par binarisation
-seuil <- 0.5
+seuil <- 0.2
 binaire <- (image - seuil) >= 0
 
 # Affichage des deux images
