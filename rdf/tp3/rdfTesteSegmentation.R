@@ -20,9 +20,10 @@
 # Chargement des fonctions externes
 library ("EBImage")
 source ("rdfSegmentation.R")
+source("https://bioconductor.org/biocLite.R")
 
 # Chargement d'une image
-nom <- "rdf-2-classes-texture-0.png"
+nom <- "rdf-2-classes-texture-4.png"
 image <- rdfReadGreyImage (nom)
 
 # Calcul et affichage de son histogramme
@@ -30,7 +31,7 @@ nbins <- 256
 h <- hist (as.vector (image), breaks = seq (0, 1, 1 / nbins))
 
 # Segmentation par binarisation
-seuil <- 0.2
+seuil <- 0.5
 binaire <- (image - seuil) >= 0
 
 # Affichage des deux images
