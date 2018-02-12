@@ -1,5 +1,5 @@
-
 ALDER Hugo
+FEVRE Corwin
 
 # Compte-rendu RDF : TP2
 
@@ -19,9 +19,9 @@ Dans la variable cont, les coordonnées d'un point sont codées grâce à des no
 
 Le dernier argument de la méthode plot, ylim, sert à indiquer la valeur minimale et maximale de l'axe y.
 
-* Im (cont) : parties imaginaires de la variable cont
-* range (Im (cont)) : indique la valeur minimale et maximale du résultat ci-dessus
-* rev (range (Im (cont))) : inverse (reverse) les valeurs obtenues ci-dessus
+* `Im (cont)` : parties imaginaires de la variable cont
+* `range (Im (cont))` : indique la valeur minimale et maximale du résultat ci-dessus
+* `rev (range (Im (cont)))` : inverse (reverse) les valeurs obtenues ci-dessus
 
 #### En ne conservant qu'un point sur 4, puis un point sur 8, constituer deux autres contours approchant la forme circulaire et les afficher respectivement en bleu et en vert dans la même fenêtre.
 
@@ -68,49 +68,18 @@ En somme, plus cette distance maximale est grande, plus la forme obtenue sera é
 * Descripteurs : couleur bleue
 * Corde : couleur verte
 
-#### Rectangle
-
-![](img/comp_rect.png)
-
-Meilleurs résultats :
-* Descripteurs : ratio de 1
-* Corde : dmax de 2
-
-#### Carré
-
-![](img/comp_car.png)
-
-Meilleurs résultats :
-* Descripteurs : ratio de 1
-* Corde : dmax de 10
-
-#### Triangle
-
-![](img/comp_tri.png)
-
-Meilleurs résultats :
-* Descripteurs : ratio de 1
-* Corde : dmax de 1
-
-#### Croix
-
-![](img/comp_croix.png)
-
-Meilleurs résultats :
-* Descripteurs : ratio de 1
-* Corde : dmax de 1
-
-#### Patatoïde
-
-![](img/comp_pat.png)
-
-Meilleurs résultats :
-* Descripteurs : ratio de 1
-* Corde : dmax de 1
-
+| Forme     | Résultats               | Ratio (Fourier) |  Dmax (Corde)     |
+| :--------:|:-----------------------:|:---------------:|:-----------------:|
+| Rectangle | ![](img/comp_rect.png)  | 1               | 2                 |
+| Carré     | ![](img/comp_car.png)   | 1               | 10                |
+| Triangle  | ![](img/comp_tri.png)   | 1               | 1                 |
+| Croix     | ![](img/comp_croix.png) | 1               | 1                 |
+| Patatoïde | ![](img/comp_pat.png)   | 1               | 1                 |
 
 ## Conclusion
 
-D'après les informations récoltées durant ce TP, on se rend compte que les descripteurs de Fourier sont plus précis que les résultats obtenus par l'algorithme de la cordes dès qu'il s'agit de reconnaître des formes naturelles. Mais cette méthode donne vite des résultats qui s'éloignent de la forme initiale si on baisse trop le pourcentage de valeurs utilisées.
+D'après les informations récoltées durant ce TP, on se rend compte que les résultats obtenus grâce aux descripteurs de Fourier sont plus précis que les résultats obtenus par l'algorithme de la corde dès qu'il s'agit de reconnaître des formes naturelles. Mais cette méthode donne vite des résultats qui s'éloignent de la forme initiale si on baisse trop le pourcentage de valeurs utilisées.
 
 L'algorithme de la corde est quant à lui efficace pour reconnaître des formes géométriques constituées de lignes droites, et permet de compresser un maximum ces données en faisant varier dmax. Cependant, il est très peu utile dans l'exemple de la patatoïde.
+
+En conclusion, il faut adapter la méthode utilisée selon le type de forme à étudier.
