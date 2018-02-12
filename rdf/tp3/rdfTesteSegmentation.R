@@ -20,22 +20,60 @@
 # Chargement des fonctions externes
 library ("EBImage")
 source ("rdfSegmentation.R")
-source("https://bioconductor.org/biocLite.R")
 
 # Chargement d'une image
-nom <- "rdf-2-classes-texture-4.png"
-image <- rdfReadGreyImage (nom)
+#nom <- "rdf-2-classes-texture-1.png"
+#image <- rdfReadGreyImage (nom)
+#masque <-  rdfReadGreyImage("rdf-masque-ronds.png")
 
 # Calcul et affichage de son histogramme
-nbins <- 256
-h <- hist (as.vector (image), breaks = seq (0, 1, 1 / nbins))
+#nbins <- 1024
+#h <- hist (as.vector (image), breaks = seq (0, 1, 1 / nbins))
 
 # Segmentation par binarisation
-seuil <- 0.5
-binaire <- (image - seuil) >= 0
+#euil <- 0.56
+#binaire <- (image - seuil) >= 0
 
-# Affichage des deux images
-if (interactive ()) {
-  display (image, nom)
-  display (binaire, "image binaire")
-}
+#Affichage des deux images
+#if (interactive ()) {
+ #display (image, nom)
+ #display (binaire, "image binaire")
+#}
+
+#a <- masque
+#b <- binaire
+#c <- sum(abs(a - b))
+#d <- (c/(ncol(a)*nrow((b))))*100
+#d
+
+#nom <- "rdf-2-classes-texture-0.png"
+#image <- rdfReadGreyImage (nom)
+#image2 <- rdfTextureEcartType (image, 2)
+#res <- rdfClassificateur2D(image,image2, 1,-1, -0.1)
+#display(res,"texture 0 binarise")
+
+nom <- "rdf-2-classes-texture-0.png"
+nbins <- 256
+image1 <- rdfReadGreyImage (nom)
+image2 <- rdfTextureEcartType(image1, 2)
+#h <- hist (as.vector (image), breaks = seq (0, 1, 1 / nbins))
+#seuil <- 0.32
+#binaire <- (seuil-image) >= 0
+h2D <- rdfCalculeHistogramme2D(image1, nbins, image2, nbins)
+#display (binaire, "image binaire texture 0")
+display(h2D, "histo2D ")
+
+a <- masque
+b <- binaire
+c <- sum(abs(a - b))
+d <- (c/(ncol(a)*nrow((b))))*100
+d
+
+#nom <- "rdf-2-classes-texture-1.png"
+#image <- rdfReadGreyImage (nom)
+#image <- rdfTextureEcartType(image, 2)
+#h <- hist (as.vector (image), breaks = seq (0, 1, 1 / nbins))
+#seuil <- 0.3
+#binaire <- (seuil-image)>= 0
+#display (binaire, "image binaire texture 1")
+#print(sum(abs(ref-binaire))/16384*100)
