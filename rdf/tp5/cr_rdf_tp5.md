@@ -46,3 +46,27 @@ Avec X = 141, on obtient les résultats suivants :
 | 0      | 0       | 0       |
 
 ## Q4 - Seuillage automatique
+
+On trouve un seuil optimal de 136.
+
+On obtient l'image seuillée ci-dessous :
+
+![](img/seuil_optimal.png)
+
+La probabilité minimale d'erreur P(ε/X^) obtenue est de
+
+## Q5 - Extraction de la région représentant le chiffre par seuillage automatique
+
+On effectue les mêmes opérations que lors des opérations précédentes, mais avec ces nouvelles images.
+
+On obtient alors un seuil optimal de 146 et l'image ci-dessous.
+
+![](img/chiffre_0.png)
+
+Si on segmente l'image du chiffre 1 avec le seuil optimal précédent, on obient l'image suivante.
+
+![](img/chiffre_1.png)
+
+On peut constater que le résultat obtenu est satisfaisant car la nature des images de base des chiffres 0 et 1 est semblable.
+
+## Q6 - Taux d'erreur de classification

@@ -2,13 +2,13 @@ library ("EBImage")
 source ("rdfSegmentation.R")
 
 # Chargement de l'image
-#image <- rdfReadGreyImage("2classes_100_100_8bits_2016.png");
-#omega1 <- rdfReadGreyImage("2classes_100_100_8bits_omega1_2016.png");
-#omega2 <- rdfReadGreyImage("2classes_100_100_8bits_omega2_2016.png");
+#image <- rdfReadGreyImage("2classes_100_100_8bits_2016.png")
+#omega1 <- rdfReadGreyImage("2classes_100_100_8bits_omega1_2016.png")
+#omega2 <- rdfReadGreyImage("2classes_100_100_8bits_omega2_2016.png")
 
-image <- rdfReadGreyImage("rdf-chiffre-0-8bits.png");
-omega1 <- rdfReadGreyImage("rdf-chiffre-0-8bits_omega1.png");
-omega2 <- rdfReadGreyImage("rdf-chiffre-0-8bits_omega2.png");
+image <- rdfReadGreyImage("rdf-chiffre-0-8bits.png")
+omega1 <- rdfReadGreyImage("rdf-chiffre-0-8bits_omega1.png")
+omega2 <- rdfReadGreyImage("rdf-chiffre-0-8bits_omega2.png")
 
 nbins <- 256
 
@@ -25,7 +25,7 @@ pw2 = sum(h2$counts) / total
 
 # Q3
 
-X = 141
+X = 142
 
 pXI = h$counts[X] / sum(h$counts)
 pXw1 = h1$counts[X] / sum(h1$counts)
