@@ -1,11 +1,12 @@
 library ("EBImage")
 source ("rdfSegmentation.R")
 
-# Chargement de l'image
-#image <- rdfReadGreyImage("2classes_100_100_8bits_2016.png")
-#omega1 <- rdfReadGreyImage("2classes_100_100_8bits_omega1_2016.png")
-#omega2 <- rdfReadGreyImage("2classes_100_100_8bits_omega2_2016.png")
+# Chargement des images Q2 - Q3 - Q4
+image <- rdfReadGreyImage("2classes_100_100_8bits_2016.png")
+omega1 <- rdfReadGreyImage("2classes_100_100_8bits_omega1_2016.png")
+omega2 <- rdfReadGreyImage("2classes_100_100_8bits_omega2_2016.png")
 
+# Chargement des images Q5
 image <- rdfReadGreyImage("rdf-chiffre-0-8bits.png")
 omega1 <- rdfReadGreyImage("rdf-chiffre-0-8bits_omega1.png")
 omega2 <- rdfReadGreyImage("rdf-chiffre-0-8bits_omega2.png")
@@ -18,16 +19,23 @@ h2 <- hist (as.vector (omega2), breaks = seq (0, 1, 1 / nbins))
 
 # Q2
 
+# Nombre de pixels total
 total <- sum(h$counts)
 
+# Nombre de pixels d'une classe / total
 pw1 = sum(h1$counts) / total
 pw2 = sum(h2$counts) / total
 
 # Q3
 
+# 142 = 141
 X = 142
 
-pXI = h$counts[X] / sum(h$counts)
+
+# Nombre de pixels de niveau de gris X de l'image de base / total
+pXI = h$counts[X] / total
+
+# Nombre de pixels d'une classe de niveau de gris X / nombre de pixels de cette classe
 pXw1 = h1$counts[X] / sum(h1$counts)
 pXw2 = h2$counts[X] / sum(h2$counts)
 
@@ -44,10 +52,10 @@ seuil_minimum_erreur = 0;
 
 for (X in 1:255) 
 {
-  somme1[X+1] = sum(h1$density[(X+1):256])/sum(h1$density[1:256])
+  somme1[X+1] = sum(h1$counts[(X+1):256])/sum(h1$counts[1:256])
   somme1[X+1] = somme1[X+1] * omega1
   
-  somme2[X+1] = sum(h2$density[1:(X+1)])/sum(h2$density[1:256])
+  somme2[X+1] = sum(h2$counts[1:(X+1)])/sum(h2$counts[1:256])
   somme2[X+1] = somme2[X+1] * omega2
   
   erreur[X+1] = somme1[X+1] + somme2[X+1]

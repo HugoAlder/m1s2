@@ -16,8 +16,10 @@ display(final_image, method="raster")
 
 # Q6
 
+# Soustraction des 2 images
 res <- (solution - final_image)
 
+# Histogramme de l'image obtenue ~ génératrice d'erreurs
 hres <- hist(as.vector (res), breaks = seq (1, 1, 1 / nbins))
 
 acc1 = 0
