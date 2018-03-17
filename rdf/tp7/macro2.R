@@ -59,9 +59,10 @@ points(XP[classe_app == 3,], col = "blue")
 
 # Q7
 
-# Ceci est un seuil
+# ALD
+
 x_app.lda <- lda(scalarProduct_app_ACP, classe_app)
-assigne_test <- predict(x_app.lda, newdata = scalarProduct_app_ACP)
+assigne_app <- predict(x_app.lda, newdata = scalarProduct_app_ACP)
 
 # Taux de bonnes classifications
 table_classification_app <- table(classe_app, assigne_app$class)
